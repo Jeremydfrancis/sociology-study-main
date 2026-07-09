@@ -1009,7 +1009,7 @@ export default function App() {
                         : C.textSub,
                     }}
                   >
-                    {cfg && cfg.icon + " "}
+                    {cfg + " "}
                     {t}
                   </button>
                 );
