@@ -58,19 +58,19 @@ const TOPIC_CFG = {
   "Politics & Government": {
     c: "#6A1B9A",
     bg: "rgba(106,27,154,0.08)",
-    icon: "🏛️",
+    icon: "",
   },
   "Collective Behavior & Movements": {
     c: "#C62828",
     bg: "rgba(198,40,40,0.08)",
-    icon: "📢",
+    icon: "",
   },
   "Marriage & Family": { c: "#2E7D32", bg: "rgba(46,125,50,0.08)", icon: "👨‍👩‍👧" },
   Education: { c: "#00695C", bg: "rgba(0,105,92,0.08)", icon: "🎓" },
   "Science, Health & Paradigms": {
     c: "#F57F17",
     bg: "rgba(245,127,23,0.10)",
-    icon: "🔬",
+    icon: "",
   },
 };
 
@@ -1009,7 +1009,7 @@ export default function App() {
                         : C.textSub,
                     }}
                   >
-                    {cfg + " "}
+                    {cfg && cfg.icon + " "}
                     {t}
                   </button>
                 );
@@ -1055,7 +1055,7 @@ export default function App() {
                   cursor: "pointer",
                 }}
               >
-                📋 Review Missed Questions ({missed.size})
+               Review Missed Questions ({missed.size})
               </button>
             )}
           </div>
