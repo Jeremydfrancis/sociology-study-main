@@ -1149,7 +1149,7 @@ export default function App() {
               marginBottom: 28,
             }}
           >
-            <span style={{ fontSize: 14 }}>{cfg.icon}</span>
+           
             <span
               style={{
                 fontSize: 12,
