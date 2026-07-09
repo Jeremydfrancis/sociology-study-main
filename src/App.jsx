@@ -2,27 +2,27 @@ import { useState, useEffect } from "react";
 
 const FONT = `@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap');`;
 
-// Color system — per published memory research recommendations:
+// Color system - per published memory research recommendations:
 //
 // Background #F8F7F2 / Text #2D2D2D:
 //   Soft off-white with charcoal text. Spence et al. (2006, Psychological Science):
 //   color on near-white bg improved recognition memory vs pure white or dark backgrounds.
 //   Warm tint reduces glare without sacrificing contrast.
 //
-// Blue #1E5AA8 — headings, interactive elements, sustained focus:
+// Blue #1E5AA8 - headings, interactive elements, sustained focus:
 //   Associated with focused cognitive performance and attention maintenance.
 //   Reserved for questions, buttons, and theory-category labels.
 //
-// Red #C62828 — errors, critical facts:
+// Red #C62828 - errors, critical facts:
 //   PMC (2022, Color Education study): red produces strongest memory encoding
 //   for detail-recall tasks. Seeing an error in red = stronger correction trace.
-//   Also used for the Deviance & Crime topic — highest exam-weight content.
+//   Also used for the Deviance & Crime topic - highest exam-weight content.
 //
-// Yellow/Amber #F9A825 — definitions, missed questions, key terms:
-//   Peak luminosity (~555nm) — reason highlighters are yellow.
+// Yellow/Amber #F9A825 - definitions, missed questions, key terms:
+//   Peak luminosity (~555nm) - reason highlighters are yellow.
 //   Used for missed-question review button and definition-heavy topic (Research Methods).
 //
-// Green #2E7D32 — correct answers, examples, supporting info:
+// Green #2E7D32 - correct answers, examples, supporting info:
 //   Semantic congruence "go/correct" signal. Forest green (not teal) is
 //   less visually fatiguing for long sessions (Better Homes & Gardens / Küller 2009).
 //
@@ -35,17 +35,17 @@ const C = {
   surfaceAlt: "#EEEEE8", // warm grey hover
   border: "#DEDCD4", // light warm border
   borderLight: "#C8C6BE", // stronger border
-  blue: "#1E5AA8", // deep blue — focus, interactive, headings
+  blue: "#1E5AA8", // deep blue - focus, interactive, headings
   blueDim: "rgba(30,90,168,0.09)",
-  green: "#2E7D32", // forest green — correct, examples
+  green: "#2E7D32", // forest green - correct, examples
   greenDim: "rgba(46,125,50,0.08)",
-  greenDark: "#E8F5E9", // light green — correct choice background
-  red: "#C62828", // research red — errors, critical facts
+  greenDark: "#E8F5E9", // light green - correct choice background
+  red: "#C62828", // research red - errors, critical facts
   redDim: "rgba(198,40,40,0.08)",
-  redDark: "#FFEBEE", // light red — incorrect choice background
-  amber: "#F57F17", // deep amber — definitions, missed questions
+  redDark: "#FFEBEE", // light red - incorrect choice background
+  amber: "#F57F17", // deep amber - definitions, missed questions
   amberDim: "rgba(245,127,23,0.10)",
-  text: "#2D2D2D", // charcoal — main text
+  text: "#2D2D2D", // charcoal - main text
   textSub: "#555555", // medium grey
   textMuted: "#8A8A8A", // light grey
 };
@@ -54,7 +54,7 @@ const C = {
 // Blue = economy/institutions · Purple = politics/power · Red = collective behavior
 // Green = marriage/family · Teal = education · Amber = science/health
 const TOPIC_CFG = {
-  "Economy & Work": { c: "#1565C0", bg: "rgba(21,101,192,0.08)", icon: "💼" },
+  "Economy & Work": { c: "#1565C0", bg: "rgba(21,101,192,0.08)", icon: "" },
   "Politics & Government": {
     c: "#6A1B9A",
     bg: "rgba(106,27,154,0.08)",
@@ -65,8 +65,8 @@ const TOPIC_CFG = {
     bg: "rgba(198,40,40,0.08)",
     icon: "",
   },
-  "Marriage & Family": { c: "#2E7D32", bg: "rgba(46,125,50,0.08)", icon: "👨‍👩‍👧" },
-  Education: { c: "#00695C", bg: "rgba(0,105,92,0.08)", icon: "🎓" },
+  "Marriage & Family": { c: "#2E7D32", bg: "rgba(46,125,50,0.08)", icon: "" },
+  Education: { c: "#00695C", bg: "rgba(0,105,92,0.08)", icon: "" },
   "Science, Health & Paradigms": {
     c: "#F57F17",
     bg: "rgba(245,127,23,0.10)",
@@ -121,7 +121,7 @@ const QUESTIONS = [
       "All of these responses are correct.",
     ],
     correct: "All of these responses are correct.",
-    exp: "As a social institution, the economy encompasses the full cycle of production, distribution, and consumption of goods and services — not just one stage of it.",
+    exp: "As a social institution, the economy encompasses the full cycle of production, distribution, and consumption of goods and services - not just one stage of it.",
   },
   {
     id: 4,
@@ -134,7 +134,7 @@ const QUESTIONS = [
       "Religion",
     ],
     correct: "The economy",
-    exp: "Many sociologists argue the economy has the broadest ripple effects on society — shaping employment, standard of living, and access to resources, and even the shape of other institutions like family and politics — since every group depends on economic production and distribution to survive.",
+    exp: "Many sociologists argue the economy has the broadest ripple effects on society - shaping employment, standard of living, and access to resources, and even the shape of other institutions like family and politics - since every group depends on economic production and distribution to survive.",
   },
   {
     id: 5,
@@ -173,7 +173,7 @@ const QUESTIONS = [
       "Service work largely based on computer technology.",
     ],
     correct: "Service work largely based on computer technology.",
-    exp: "A postindustrial economy shifts from manufacturing to service and information work — jobs centered on knowledge, technology, and computer-based tasks rather than physical production.",
+    exp: "A postindustrial economy shifts from manufacturing to service and information work - jobs centered on knowledge, technology, and computer-based tasks rather than physical production.",
   },
   {
     id: 8,
@@ -186,7 +186,7 @@ const QUESTIONS = [
       "There was a shift from working in factories to working almost anywhere.",
     ],
     correct: "There was a shift from farming to turning raw materials into finished products.",
-    exp: "That shift — from farming to manufacturing finished products — describes the earlier Industrial Revolution, not the Information Revolution. The Information Revolution shifted work from factories to knowledge-based, mobile, idea-generating labor.",
+    exp: "That shift - from farming to manufacturing finished products - describes the earlier Industrial Revolution, not the Information Revolution. The Information Revolution shifted work from factories to knowledge-based, mobile, idea-generating labor.",
   },
   {
     id: 9,
@@ -212,7 +212,7 @@ const QUESTIONS = [
       "All of these responses are correct.",
     ],
     correct: "Economic activity that moves across national borders.",
-    exp: "A global economy is one in which production, trade, and finance cross national boundaries, tying nations' economic fortunes together — not one controlled by a single body or limited to a few countries.",
+    exp: "A global economy is one in which production, trade, and finance cross national boundaries, tying nations' economic fortunes together - not one controlled by a single body or limited to a few countries.",
   },
   {
     id: 11,
@@ -238,7 +238,7 @@ const QUESTIONS = [
       "Max Weber.",
     ],
     correct: "Adam Smith.",
-    exp: "Adam Smith, in The Wealth of Nations (1776), argued that an 'invisible hand' of self-interested exchange in free markets efficiently allocates resources — the foundational argument for laissez-faire capitalism.",
+    exp: "Adam Smith, in The Wealth of Nations (1776), argued that an 'invisible hand' of self-interested exchange in free markets efficiently allocates resources - the foundational argument for laissez-faire capitalism.",
   },
   {
     id: 13,
@@ -277,7 +277,7 @@ const QUESTIONS = [
       "Means of production.",
     ],
     correct: "Distribution of power, goals, and decision making.",
-    exp: "As a social institution, politics concerns how power is distributed and exercised — who makes decisions, sets goals, and governs collective life.",
+    exp: "As a social institution, politics concerns how power is distributed and exercised - who makes decisions, sets goals, and governs collective life.",
   },
   {
     id: 16,
@@ -290,7 +290,7 @@ const QUESTIONS = [
       "The source of all bureaucracy.",
     ],
     correct: "The ability to achieve desired ends, despite resistance.",
-    exp: "Weber's classic definition: power is the ability of an individual or group to achieve their aims even against the resistance of others — distinct from mere wealth or formal government office.",
+    exp: "Weber's classic definition: power is the ability of an individual or group to achieve their aims even against the resistance of others - distinct from mere wealth or formal government office.",
   },
   {
     id: 17,
@@ -329,7 +329,7 @@ const QUESTIONS = [
       "Huh?",
     ],
     correct: "Third",
-    exp: "Steven Lukes' third (radical) dimension of power is the most insidious: it shapes people's very wants and beliefs so thoroughly that they don't even perceive grounds for objection — power so total it can't be contradicted or reversed, unlike the first dimension (visible decision-making) or the second (agenda-setting).",
+    exp: "Steven Lukes' third (radical) dimension of power is the most insidious: it shapes people's very wants and beliefs so thoroughly that they don't even perceive grounds for objection - power so total it can't be contradicted or reversed, unlike the first dimension (visible decision-making) or the second (agenda-setting).",
   },
   {
     id: 20,
@@ -355,7 +355,7 @@ const QUESTIONS = [
       "All of these",
     ],
     correct: "All of these",
-    exp: "Weber's ideal-type bureaucracy features division of labor, a clear hierarchy of authority, and impersonality (decisions based on rules, not personal relationships) — all simultaneously.",
+    exp: "Weber's ideal-type bureaucracy features division of labor, a clear hierarchy of authority, and impersonality (decisions based on rules, not personal relationships) - all simultaneously.",
   },
   {
     id: 22,
@@ -380,7 +380,7 @@ const QUESTIONS = [
       "Right rights",
     ],
     correct: "Civil rights",
-    exp: "Anti-discrimination laws protect individuals' basic civil rights — equal treatment and freedom from interference or exclusion based on group membership.",
+    exp: "Anti-discrimination laws protect individuals' basic civil rights - equal treatment and freedom from interference or exclusion based on group membership.",
   },
   {
     id: 24,
@@ -407,7 +407,7 @@ const QUESTIONS = [
       "All of these",
     ],
     correct: "All of these",
-    exp: "Sociologists analyze the economy as made up of interlocking subsystems — property relations, technology, division of labor, and the organization of work — that together structure economic life.",
+    exp: "Sociologists analyze the economy as made up of interlocking subsystems - property relations, technology, division of labor, and the organization of work - that together structure economic life.",
   },
   {
     id: 26,
@@ -420,7 +420,7 @@ const QUESTIONS = [
       "McDonaldization",
     ],
     correct: "McDonaldization",
-    exp: "Ritzer's McDonaldization thesis describes how efficiency, calculability, predictability, and control — principles pioneered by fast-food chains — have come to dominate institutions far beyond the restaurant industry.",
+    exp: "Ritzer's McDonaldization thesis describes how efficiency, calculability, predictability, and control - principles pioneered by fast-food chains - have come to dominate institutions far beyond the restaurant industry.",
   },
   {
     id: 27,
@@ -433,7 +433,7 @@ const QUESTIONS = [
       "Achieved",
     ],
     correct: "Static",
-    exp: "A static identity is fixed rather than chosen or earned — like race or sex assigned at birth — and automatically places you within a given social category, in contrast to an achieved identity you earn through action.",
+    exp: "A static identity is fixed rather than chosen or earned - like race or sex assigned at birth - and automatically places you within a given social category, in contrast to an achieved identity you earn through action.",
   },
   {
     id: 28,
@@ -446,7 +446,7 @@ const QUESTIONS = [
       "Addams",
     ],
     correct: "Durkheim",
-    exp: "Émile Durkheim described the 'cult of the individual' in the late 1800s — the idea that in modern, differentiated societies, the individual person (rather than the collective) becomes a kind of sacred object, a precursor to modern individualism and self-focus.",
+    exp: "Émile Durkheim described the 'cult of the individual' in the late 1800s - the idea that in modern, differentiated societies, the individual person (rather than the collective) becomes a kind of sacred object, a precursor to modern individualism and self-focus.",
   },
   {
     id: 29,
@@ -459,7 +459,7 @@ const QUESTIONS = [
       "None of these",
     ],
     correct: "None of these",
-    exp: "Mobs and riots are classified as acting crowds — emotionally charged and oriented toward a violent or destructive goal — a category distinct from casual crowds (people incidentally in the same place), conventional crowds (planned, norm-following gatherings like a concert audience), and expressive crowds (gathered to release emotion, e.g., at a festival). Since 'acting' isn't among the answer choices, none of the given options is correct.",
+    exp: "Mobs and riots are classified as acting crowds - emotionally charged and oriented toward a violent or destructive goal - a category distinct from casual crowds (people incidentally in the same place), conventional crowds (planned, norm-following gatherings like a concert audience), and expressive crowds (gathered to release emotion, e.g., at a festival). Since 'acting' isn't among the answer choices, none of the given options is correct.",
   },
   {
     id: 30,
@@ -472,7 +472,7 @@ const QUESTIONS = [
       "Flash mobs",
     ],
     correct: "Crowd Collectives",
-    exp: "Crowd behavior (a 'localized collectivity') requires people to be physically co-present and face to face, unlike mass behavior — a 'dispersed collectivity' where participants share a common interest or reaction without ever being in the same place (e.g., a viral rumor or nationwide fad).",
+    exp: "Crowd behavior (a 'localized collectivity') requires people to be physically co-present and face to face, unlike mass behavior - a 'dispersed collectivity' where participants share a common interest or reaction without ever being in the same place (e.g., a viral rumor or nationwide fad).",
   },
   {
     id: 31,
@@ -485,12 +485,12 @@ const QUESTIONS = [
       "Mass Behavior",
     ],
     correct: "Convergence",
-    exp: "Convergence theory holds that crowds form when like-minded individuals — who already share similar attitudes or predispositions — come together in the same place, rather than the crowd itself creating those shared feelings (as contagion theory would argue).",
+    exp: "Convergence theory holds that crowds form when like-minded individuals - who already share similar attitudes or predispositions - come together in the same place, rather than the crowd itself creating those shared feelings (as contagion theory would argue).",
   },
   {
     id: 32,
     topic: "Collective Behavior & Movements",
-    q: "What type of movement seeks to make radical change across an entire society, dissatisfied with the existing social order — radical change that is tailored to their ideological beliefs?",
+    q: "What type of movement seeks to make radical change across an entire society, dissatisfied with the existing social order - radical change that is tailored to their ideological beliefs?",
     choices: [
       "Reformative",
       "Redemptive",
@@ -498,7 +498,7 @@ const QUESTIONS = [
       "Escapist",
     ],
     correct: "Revolutionary",
-    exp: "Revolutionary (transformative) movements seek total, radical change to the entire social order, rejecting the status quo altogether — unlike reformative movements, which push for limited change within the existing system.",
+    exp: "Revolutionary (transformative) movements seek total, radical change to the entire social order, rejecting the status quo altogether - unlike reformative movements, which push for limited change within the existing system.",
   },
   {
     id: 33,
@@ -512,7 +512,7 @@ const QUESTIONS = [
       "All of these",
     ],
     correct: "All of these",
-    exp: "Aberle's typology classifies social movements along two dimensions — how much change they seek (limited vs. radical) and who they target (specific subgroups vs. the whole society) — so all four factors are used to identify a movement's type.",
+    exp: "Aberle's typology classifies social movements along two dimensions - how much change they seek (limited vs. radical) and who they target (specific subgroups vs. the whole society) - so all four factors are used to identify a movement's type.",
   },
   {
     id: 34,
@@ -525,7 +525,7 @@ const QUESTIONS = [
       "Foxing",
     ],
     correct: "Framing",
-    exp: "Framing is the strategic presentation of facts and issues to highlight a problem and suggest that action or a solution is needed — a key tool social movements use to mobilize support.",
+    exp: "Framing is the strategic presentation of facts and issues to highlight a problem and suggest that action or a solution is needed - a key tool social movements use to mobilize support.",
   },
   {
     id: 35,
@@ -538,7 +538,7 @@ const QUESTIONS = [
       "Revolutionary",
     ],
     correct: "Grassroots",
-    exp: "The Flint Water Crisis gained national attention largely through grassroots activism — local residents, especially mothers, organizing and demanding accountability from the bottom up rather than through top-down institutional channels.",
+    exp: "The Flint Water Crisis gained national attention largely through grassroots activism - local residents, especially mothers, organizing and demanding accountability from the bottom up rather than through top-down institutional channels.",
   },
   {
     id: 36,
@@ -551,7 +551,7 @@ const QUESTIONS = [
       "When it comes to love, opposites attract.",
     ],
     correct: "Typically, a person marries someone of similar social position.",
-    exp: "Sociologists point to the pattern of homogamy — people tend to marry others similar in class, education, religion, and ethnicity — showing that social structure, not just personal feeling, shapes our romantic choices.",
+    exp: "Sociologists point to the pattern of homogamy - people tend to marry others similar in class, education, religion, and ethnicity - showing that social structure, not just personal feeling, shapes our romantic choices.",
   },
   {
     id: 37,
@@ -590,7 +590,7 @@ const QUESTIONS = [
       "A form of land acquisition",
     ],
     correct: "Systems of relationships between people related by blood and marriage",
-    exp: "A kinship network is the web of relationships — by blood, marriage, or adoption — that connects individuals to a broader network of relatives, shaping obligations, support, and identity.",
+    exp: "A kinship network is the web of relationships - by blood, marriage, or adoption - that connects individuals to a broader network of relatives, shaping obligations, support, and identity.",
   },
   {
     id: 40,
@@ -603,7 +603,7 @@ const QUESTIONS = [
       "All of these",
     ],
     correct: "Fluid",
-    exp: "Sociologists emphasize that 'family' is a fluid, historically and culturally variable institution — its form and definition change over time and across societies, rather than being one fixed, universal arrangement.",
+    exp: "Sociologists emphasize that 'family' is a fluid, historically and culturally variable institution - its form and definition change over time and across societies, rather than being one fixed, universal arrangement.",
   },
   {
     id: 41,
@@ -616,7 +616,7 @@ const QUESTIONS = [
       "Polyamory",
     ],
     correct: "A nuclear family",
-    exp: "The mid-20th-century 'American Standard' idealized the nuclear family — breadwinner father, homemaker mother, and their children — as the normative family form, even though it never represented all American households.",
+    exp: "The mid-20th-century 'American Standard' idealized the nuclear family - breadwinner father, homemaker mother, and their children - as the normative family form, even though it never represented all American households.",
   },
   {
     id: 42,
@@ -629,7 +629,7 @@ const QUESTIONS = [
       "An admonishment of the trophy hunting phenomenon",
     ],
     correct: "Parent-led families",
-    exp: "The elephant family was used to illustrate a parent-led, multigenerational caregiving model — adult elephants (mothers and other female relatives) closely guide and protect the young. If your course framed this differently, double-check your lecture notes — this example is specific to your class film and harder to verify from outside sources.",
+    exp: "The elephant family was used to illustrate a parent-led, multigenerational caregiving model - adult elephants (mothers and other female relatives) closely guide and protect the young. If your course framed this differently, double-check your lecture notes - this example is specific to your class film and harder to verify from outside sources.",
   },
   {
     id: 43,
@@ -642,7 +642,7 @@ const QUESTIONS = [
       "All of the above",
     ],
     correct: "All of the above",
-    exp: "The hidden curriculum — the unstated norms and values schools teach alongside academics — functions in multiple, sometimes contradictory ways: functionalists see it as building social cohesion, while conflict theorists study how it imposes dominant cultural values on marginalized groups. Both are true simultaneously.",
+    exp: "The hidden curriculum - the unstated norms and values schools teach alongside academics - functions in multiple, sometimes contradictory ways: functionalists see it as building social cohesion, while conflict theorists study how it imposes dominant cultural values on marginalized groups. Both are true simultaneously.",
   },
   {
     id: 44,
@@ -655,7 +655,7 @@ const QUESTIONS = [
       "The mechanics of Darwinism.",
     ],
     correct: "Ways education supports the operation of modern society",
-    exp: "Functionalists analyze education in terms of the functions it performs for society as a whole — socialization, social integration, sorting/allocating talent, and innovation — that keep modern society running smoothly.",
+    exp: "Functionalists analyze education in terms of the functions it performs for society as a whole - socialization, social integration, sorting/allocating talent, and innovation - that keep modern society running smoothly.",
   },
   {
     id: 45,
@@ -668,7 +668,7 @@ const QUESTIONS = [
       "None of these",
     ],
     correct: "The Coleman report",
-    exp: "The 1966 Coleman Report found that a student's family background and peer/community environment were more strongly linked to educational achievement than school funding or resources — a landmark and controversial finding in the sociology of education.",
+    exp: "The 1966 Coleman Report found that a student's family background and peer/community environment were more strongly linked to educational achievement than school funding or resources - a landmark and controversial finding in the sociology of education.",
   },
   {
     id: 46,
@@ -694,7 +694,7 @@ const QUESTIONS = [
       "Teacher salary analysis",
     ],
     correct: "Rewarded behaviors",
-    exp: "Symbolic interactionists study education at the micro level — day-to-day classroom interactions, like which behaviors teachers notice and reward, and how labeling and expectations shape a student's self-concept.",
+    exp: "Symbolic interactionists study education at the micro level - day-to-day classroom interactions, like which behaviors teachers notice and reward, and how labeling and expectations shape a student's self-concept.",
   },
   {
     id: 48,
@@ -707,7 +707,7 @@ const QUESTIONS = [
       "Human Capital",
     ],
     correct: "Human Capital",
-    exp: "Human capital refers to the education, skills, and knowledge that increase an individual's economic value and productivity — a concept central to why societies invest in schooling.",
+    exp: "Human capital refers to the education, skills, and knowledge that increase an individual's economic value and productivity - a concept central to why societies invest in schooling.",
   },
   {
     id: 49,
@@ -720,7 +720,7 @@ const QUESTIONS = [
       "Both A and B",
     ],
     correct: "Both A and B",
-    exp: "Conflict theorists examine how education reproduces inequality — both through biased textbook content (whose perspectives and histories get included) and through tracking/ability grouping, which can channel students of different backgrounds into unequal educational and occupational paths.",
+    exp: "Conflict theorists examine how education reproduces inequality - both through biased textbook content (whose perspectives and histories get included) and through tracking/ability grouping, which can channel students of different backgrounds into unequal educational and occupational paths.",
   },
   {
     id: 50,
@@ -733,7 +733,7 @@ const QUESTIONS = [
       "Degree inversion",
     ],
     correct: "Social closure",
-    exp: "Social closure describes how groups (professions, unions) restrict access to opportunities and resources — through licensing, credentialing requirements, and organized representation — to protect their own status and limit competition.",
+    exp: "Social closure describes how groups (professions, unions) restrict access to opportunities and resources - through licensing, credentialing requirements, and organized representation - to protect their own status and limit competition.",
   },
   {
     id: 51,
@@ -746,7 +746,7 @@ const QUESTIONS = [
       "Normative science",
     ],
     correct: "Pure science",
-    exp: "Pure science is the ideal that scientific inquiry is guided purely by objective evidence and method, free from the personal values or biases of the researcher — an ideal real science often falls short of, but still aspires to.",
+    exp: "Pure science is the ideal that scientific inquiry is guided purely by objective evidence and method, free from the personal values or biases of the researcher - an ideal real science often falls short of, but still aspires to.",
   },
   {
     id: 52,
@@ -759,7 +759,7 @@ const QUESTIONS = [
       "All of these",
     ],
     correct: "All of these",
-    exp: "Trick question: understanding gender as non-binary, expanding feminism beyond white middle-class concerns, and applying intersectionality to inequality are all genuine paradigm shifts in sociology — meaning none of them is the exception, so 'all of these' is the only defensible choice.",
+    exp: "Trick question: understanding gender as non-binary, expanding feminism beyond white middle-class concerns, and applying intersectionality to inequality are all genuine paradigm shifts in sociology - meaning none of them is the exception, so 'all of these' is the only defensible choice.",
   },
   {
     id: 53,
@@ -772,7 +772,7 @@ const QUESTIONS = [
       "The Socratic Method",
     ],
     correct: "The Matilda Effect",
-    exp: "The Matilda Effect names the pattern of women scientists' contributions being downplayed, overlooked, or credited to male colleagues — a gendered counterpart to the Matthew Effect (where already-famous scientists get disproportionate credit).",
+    exp: "The Matilda Effect names the pattern of women scientists' contributions being downplayed, overlooked, or credited to male colleagues - a gendered counterpart to the Matthew Effect (where already-famous scientists get disproportionate credit).",
   },
   {
     id: 54,
@@ -785,7 +785,7 @@ const QUESTIONS = [
       "Russia",
     ],
     correct: "Sub-Saharan Africa",
-    exp: "Sub-Saharan Africa has long borne the greatest global burden of HIV, accounting for the large majority of people living with HIV worldwide, including in 2013 — driven by factors like limited healthcare access, poverty, and stigma.",
+    exp: "Sub-Saharan Africa has long borne the greatest global burden of HIV, accounting for the large majority of people living with HIV worldwide, including in 2013 - driven by factors like limited healthcare access, poverty, and stigma.",
   },
   {
     id: 55,
@@ -798,7 +798,7 @@ const QUESTIONS = [
       "All of these",
     ],
     correct: "All of these",
-    exp: "The 20th-century epidemiological transition — from infectious disease to chronic illness as the leading cause of death — resulted from a combination of advances: vaccines, improved sanitation/ventilation, and public health education, not any single factor alone.",
+    exp: "The 20th-century epidemiological transition - from infectious disease to chronic illness as the leading cause of death - resulted from a combination of advances: vaccines, improved sanitation/ventilation, and public health education, not any single factor alone.",
   },
 ];
 
@@ -1037,7 +1037,7 @@ export default function App() {
                 letterSpacing: "0.01em",
               }}
             >
-              Start Quiz — {count} Questions →
+              Start Quiz - {count} Questions →
             </button>
             {missed.size > 0 && (
               <button
@@ -1293,7 +1293,7 @@ export default function App() {
                   marginBottom: 8,
                 }}
               >
-                {isCorrect ? "✓ Correct!" : "✗ Not quite — here's why:"}
+                {isCorrect ? "✓ Correct!" : "✗ Not quite - here's why:"}
               </div>
               {!isCorrect && (
                 <div
@@ -1495,7 +1495,7 @@ export default function App() {
                           marginTop: 4,
                         }}
                       >
-                        ⚠ Focus here — below passing threshold
+                        ⚠ Focus here - below passing threshold
                       </div>
                     )}
                   </div>
